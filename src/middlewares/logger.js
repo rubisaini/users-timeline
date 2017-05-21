@@ -3,7 +3,9 @@
  */
 
 
-export default logger = (store) =>(next) =>(action) => {
+const logger = (store) =>(next) =>(action) => {
     console.log(`Fired action is: ${action.type}`);
     next(action);
-}
+};
+
+export default logger;

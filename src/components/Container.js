@@ -8,7 +8,7 @@ import Timeline from './Timeline';
 class Container extends Component{
 
     render(){
-        return (<div>
+        return (<div className="inner-container">
             <AddPost/>
             <Timeline/>
         </div>)

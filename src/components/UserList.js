@@ -8,14 +8,14 @@ class UserList extends Component{
     userList = [];
 
     clickHandler = (event, email) => {
-        console.log('>>>>>>>>>>.', email);
         this.props.filterUser(email);
     };
 
     componentWillReceiveProps(props){
-        if(this.props.post.posts) {
+        this.userList = [];
+        if(props.post.posts) {
 
-            this.props.post.posts.forEach((post) => {
+            props.post.posts.forEach((post) => {
 
                 if(this.userList.indexOf(post.email) == -1){
                     this.userList.push(post.email);
@@ -28,7 +28,7 @@ class UserList extends Component{
     render(){
         return (<div className="user-list">
             <ul>
-                {this.userList.map((email, index) =>  <li  onClick={(event) => this.clickHandler(event, email)} key={index} className="user">{email}</li>)}
+                {this.userList.map((email, index) =>  <li  onClick={(event) => this.clickHandler(event, email)} key={(+ new Date()) + index} className="user">{email}</li>)}
 
             </ul>
         </div>)
